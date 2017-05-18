@@ -1,0 +1,36 @@
+<h1>Burgers Ready to Eat </h1>
+
+<table>
+    <tr>
+     
+    </tr>
+    {{#each burgers}} {{#unless this.devoured}}
+    <tr>
+        <td>{{this.burgerName}} {{> burgers/eat-burger}}</td>
+    </tr>
+    {{/unless}} {{/each}}
+</table>
+
+<h1>Eaten Burgers</h1>
+
+<table>
+    <tr>
+        
+    </tr>
+    {{#each burgers}} {{#if this.devoured}}
+    <tr>
+        <td>{{this.burgerName}}</td>
+    </tr>
+    {{/if}} {{/each}}
+</table>
+
+<h2>Add a burger to the menu</h2>
+<form class="create-update-form" action="/add" method="POST">
+
+  <div class="form-group">
+    <label for="name">Burger Name:</label>
+    <input type="text" id="burger-name" name="name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
